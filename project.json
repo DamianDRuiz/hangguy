@@ -24,7 +24,8 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "hangguy:build"
+        "buildTarget": "hangguy:build",
+        "base": "https://wordpressballer.com/"
       },
       "configurations": {
         "development": {
