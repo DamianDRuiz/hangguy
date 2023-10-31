@@ -1,16 +1,30 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
+import { useState } from 'react'
 
 export function App() {
+  const [wordToGuess, setWordToGuess] = useState<string>('')
+
   return (
     <>
-      <NxWelcome title="hangguy" />
-
-      <div />
+      <WordToGuess />
+      <HangmanDiagram />
+      <Guess />
     </>
-  );
+  )
 }
 
-export default App;
+interface HangmanDiagramProps {}
+function HangmanDiagram({}: HangmanDiagramProps) {
+  return <div>Diagram</div>
+}
+
+interface WordToGuessProps {}
+function WordToGuess({}: WordToGuessProps) {
+  return <div>Word to Guess Input</div>
+}
+
+interface GuessProps {}
+function Guess({}: GuessProps) {
+  return <div>Guess Input</div>
+}
+
+export default App
