@@ -1,0 +1,72 @@
+{
+  "name": "hangguy",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/hangguy"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hangguy:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hangguy:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "hangguy:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "hangguy:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hangguy:build:development"
+        },
+        "production": {
+          "buildTarget": "hangguy:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/hangguy"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/hangguy"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
